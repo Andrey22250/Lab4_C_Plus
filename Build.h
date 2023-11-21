@@ -9,10 +9,10 @@ class Build
 public:
 	Build();
 	Build(int number);
-	Build(int number, PC pc, string client, Status status);
+	Build(PC pc, string client, Status status);
 	~Build();
 
-	bool CheckCor(int number, PC pc, string client, Status status);
+	bool CheckCor(PC pc, string client, Status status);
 
 	int GetNum();
 	PC GetPC();
@@ -22,9 +22,9 @@ public:
 	void out_build();
 	void ChangeStatus(Status newstatus);
 	void SetPC(PC pc);
-	void SetBuild(int number, PC pc, string client, Status status);
+	void SetBuild(PC pc, string client, Status status);
 private:
-	int number;
+	static int numberBuild;
 	PC pc;
 	string client;
 	Status status;

@@ -7,23 +7,23 @@ inline void clean()  //Î÷èñòêà ïîòîêà
 
 Build::Build()
 {
-	number = 0;
+	
 	pc = PC();
 	status = create;
 }
 
 Build::Build(int number)
 {
-	this->number = number;
+	this->numberBuild = numberBuild++;
 	pc = PC();
 	status = create;
 }
 
-Build::Build(int number, PC pc, string client, Status status)
+Build::Build(PC pc, string client, Status status)
 {
-	if (CheckCor(number, pc, client, status))
+	if (CheckCor(pc, client, status))
 	{
-		this->number = number;
+		this->numberBuild = numberBuild++;
 		this->pc = pc;
 		this->client = client;
 		this->status = status;
@@ -34,9 +34,9 @@ Build::~Build()
 {
 }
 
-bool Build::CheckCor(int number, PC pc, string client, Status status)
+bool Build::CheckCor(PC pc, string client, Status status)
 {
-	if (number > 0 && size(client) != 0 && (status >= create && status <= finished))
+	if (size(client) != 0 && (status >= create && status <= finished))
 		return true;
 	else
 	{
@@ -47,7 +47,7 @@ bool Build::CheckCor(int number, PC pc, string client, Status status)
 
 int Build::GetNum()
 {
-	return number;
+	return numberBuild;
 }
 
 PC Build::GetPC()
@@ -86,7 +86,7 @@ void Build::input_build()
 		clean();
 	} while (status < 0 && status > 2);
 	pc.input_pc();
-	SetBuild(number, pc, client, status);
+	SetBuild(pc, client, status);
 }
 
 void Build::out_build()
@@ -115,11 +115,11 @@ void Build::SetPC(PC pc)
 	this->pc = pc;
 }
 
-void Build::SetBuild(int number, PC pc, string client, Status status)
+void Build::SetBuild(PC pc, string client, Status status)
 {
-	if (CheckCor(number, pc, client, status))
+	if (CheckCor(pc, client, status))
 	{
-		this->number = number;
+		this->numberBuild = numberBuild;
 		this->pc = pc;
 		this->client = client;
 		this->status = status;
