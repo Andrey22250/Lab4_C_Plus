@@ -7,14 +7,14 @@ inline void clean()  //ќчистка потока
 
 Build::Build()
 {
-	
+	this->number = numberBuild++;
 	pc = PC();
 	status = create;
 }
 
-Build::Build(int number)
+Build::Build(string client)
 {
-	this->numberBuild = numberBuild++;
+	this->number = numberBuild++;
 	pc = PC();
 	status = create;
 }
@@ -23,7 +23,7 @@ Build::Build(PC pc, string client, Status status)
 {
 	if (CheckCor(pc, client, status))
 	{
-		this->numberBuild = numberBuild++;
+		this->number = numberBuild++;
 		this->pc = pc;
 		this->client = client;
 		this->status = status;
@@ -47,7 +47,7 @@ bool Build::CheckCor(PC pc, string client, Status status)
 
 int Build::GetNum()
 {
-	return numberBuild;
+	return number;
 }
 
 PC Build::GetPC()
@@ -67,15 +67,8 @@ Status Build::GetStatus()
 
 void Build::input_build()
 {
-	int number;
 	string client;
 	printf("¬вод данных заказа\n\n");
-	do
-	{
-		printf("¬ведите номер заказа: ");
-		scanf("%d", &number);
-		clean();
-	} while (number <= 0);
 	printf("¬ведите им€ клиента: ");
 	getline(cin, client);
 	Status status;
@@ -119,9 +112,11 @@ void Build::SetBuild(PC pc, string client, Status status)
 {
 	if (CheckCor(pc, client, status))
 	{
-		this->numberBuild = numberBuild;
+		this->number = numberBuild;
 		this->pc = pc;
 		this->client = client;
 		this->status = status;
 	}
 }
+
+int Build::numberBuild = 1;

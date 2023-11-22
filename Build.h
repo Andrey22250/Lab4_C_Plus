@@ -8,7 +8,7 @@ class Build
 {
 public:
 	Build();
-	Build(int number);
+	Build(string client);
 	Build(PC pc, string client, Status status);
 	~Build();
 
@@ -25,6 +25,7 @@ public:
 	void SetBuild(PC pc, string client, Status status);
 private:
 	static int numberBuild;
+	int number;
 	PC pc;
 	string client;
 	Status status;
