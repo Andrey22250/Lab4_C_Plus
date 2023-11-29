@@ -12,16 +12,23 @@ public:
 	CPU(string name_cpu, int frequency, int cores, int treads);
 	~CPU();
 
-	bool CheckCor(string name_cpu, int frequency, int cores, int treads);
+	void operator=(CPU other);
+	//единственное "разумное" применение модификтора friend
+	friend CPU& operator++(CPU& cpu);
+	bool CheckCor(string name_cpu, int frequency, int cores, int treads) const;
 
-	string GetName();
-	int GetFrequency();
-	int GetCores();
-	int GetTreads();
+	string GetName() const;
+	int GetFrequency() const;
+	int GetCores() const;
+	int GetTreads() const;
 	void input_cpu();
 	void SetCpu(string name_cpu, int frequency, int cores, int treads);
 private:
-	string name_cpu;
+	string name_cpu ;
 	int frequency;
 	int cores, treads;
 };
+
+CPU operator+(const CPU& cpu, int addable);
+CPU operator++(CPU& cpu, int);
+std::ostream& operator << (std::ostream& out, const CPU& cpu);

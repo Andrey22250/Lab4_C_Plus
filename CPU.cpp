@@ -2,12 +2,39 @@
 #include <string>
 #include "CPU.h"
 
+void CPU::operator=(const CPU other) {
+	this->name_cpu = other.GetName();
+	this->frequency = other.GetFrequency();
+	this->cores = other.GetCores();
+	this->treads = other.GetTreads();
+}
+
+CPU operator+(const CPU& cpu, int addable) {
+	return CPU(cpu.GetName(), cpu.GetFrequency() + addable, cpu.GetCores() , cpu.GetTreads());
+}
+
+CPU& operator++(CPU& cpu) {
+	cpu.SetCpu(cpu.GetName(), cpu.GetFrequency(), cpu.GetCores(), cpu.GetTreads());
+	return cpu;
+}
+
+CPU operator++(CPU& cpu, int) {
+	CPU tempCPU = cpu;
+	++cpu;
+	return tempCPU;
+}
+
+std::ostream& operator << (ostream& out, const CPU& cpu) {
+	out << cpu.GetName();
+	return out;
+}
+
 inline void clean()  //Очистка потока
 {
 	while (getchar() != '\n');
 }
 
-bool CPU::CheckCor(string name_cpu, int frequency, int cores, int treads)
+bool CPU::CheckCor(string name_cpu, int frequency, int cores, int treads) const
 {
 	if (size(name_cpu) != 0 && frequency > 0 && cores > 0 && treads > 0)
 		return true;
@@ -56,22 +83,22 @@ CPU::~CPU()
 }
 
 //Получение
-int CPU::GetFrequency()
+int CPU::GetFrequency() const
 {
 	return frequency;
 }
 
-int CPU::GetCores()
+int CPU::GetCores() const
 {
 	return cores;
 }
 
-int CPU::GetTreads()
+int CPU::GetTreads() const
 {
 	return treads;
 }
 
-string CPU::GetName()
+string CPU::GetName() const
 {
 	return name_cpu;
 }

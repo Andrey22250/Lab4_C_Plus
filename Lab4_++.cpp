@@ -21,13 +21,13 @@ int main()
 	PC ex1 = PC();
 	Motherboard* mrbrd = ex1.GetMrbrd();
 	CPU& cpu = ex1.GetCpu();
-	cout << "Название МП: " << mrbrd->GetName() << std::endl;
-	cout << "Название ЦПУ: " << cpu.GetName() << std::endl;
+	cout << "Название МП: " << mrbrd->GetName() << endl;
+	cout << "Название ЦПУ: " << cpu.GetName() << endl;
 
 	//3. Перегрузка оператора +,++
-	RAM ram = RAM();
-	std::cout << ram++ << std::endl;
-	std::cout << ++ram << std::endl;
-	RAM ram2 = ram + 100;
-	std::cout << ram2 << std::endl << std::endl;
+	CPU cpu = CPU();
+	cout << cpu++ << endl;
+	cout << ++cpu << endl;
+	CPU cpu2 = cpu + 100;
+	cout << cpu2 << endl << endl;
 }
