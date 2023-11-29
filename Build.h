@@ -14,7 +14,7 @@ public:
 
 	bool CheckCor(PC pc, string client, Status status);
 
-	int GetNum();
+	static int GetNumBuild();
 	PC GetPC();
 	string GetClient();
 	Status GetStatus();

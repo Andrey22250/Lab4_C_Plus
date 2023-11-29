@@ -19,6 +19,5 @@ public:
 	void input_mrbrd();
 	void SetMrbrd(string name_mrbrd, string chipset);
 private:
-	string name_mrbrd, chipset;
+	string name_mrbrd = "", chipset = "";
 };
-

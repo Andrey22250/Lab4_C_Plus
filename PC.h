@@ -11,16 +11,16 @@ using namespace std;
 class PC
 {
 public:
-	PC();
+	PC() = default;
 	PC(float price);
-	PC(float price, CPU cpu, GPU gpu, RAM ram, Motherboard mrbrd);
+	PC(float price, CPU cpu, GPU gpu, RAM ram, Motherboard *mrbrd);
 	~PC();
 
 	float GetPrice();
-	CPU GetCpu();
-	GPU GetGpu();
-	RAM GetRam();
-	Motherboard GetMrbrd();
+	CPU& GetCpu();
+	GPU& GetGpu();
+	RAM& GetRam();
+	Motherboard* GetMrbrd();
 	void input_pc();
 	void Undervolt_GPU();
 	void Out_PC();
@@ -30,5 +30,5 @@ private:
 	CPU cpu;
 	GPU gpu;
 	RAM ram;
-	Motherboard mrbrd;
+	Motherboard *mrbrd = new Motherboard();
 };

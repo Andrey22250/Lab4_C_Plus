@@ -13,11 +13,14 @@ bool Motherboard::CheckCor(string name_mrbrd, string chipset)
 
 Motherboard::Motherboard()
 {
+	this->name_mrbrd = "";
+	this->chipset = "";
 }
 
 Motherboard::Motherboard(string name_mrbrd)
 {
 	this->name_mrbrd = name_mrbrd;
+	this->chipset = "";
 }
 
 Motherboard::Motherboard(string name_mrbrd, string chipset)

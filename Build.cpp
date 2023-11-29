@@ -45,9 +45,9 @@ bool Build::CheckCor(PC pc, string client, Status status)
 	}
 }
 
-int Build::GetNum()
+int Build::GetNumBuild()
 {
-	return number;
+	return numberBuild;
 }
 
 PC Build::GetPC()
@@ -85,7 +85,7 @@ void Build::input_build()
 void Build::out_build()
 {
 	printf("\nИнформация о заказе:\n\n");
-	printf("Номер заказа: %d\n", GetNum());
+	printf("Номер заказа: %d\n", GetNumBuild());
 	printf("Клиент - %s\n", GetClient().c_str());
 	printf("Статус - %s\n", StatusToString(GetStatus()).c_str());
 	pc.Out_PC();
@@ -119,4 +119,4 @@ void Build::SetBuild(PC pc, string client, Status status)
 	}
 }
 
-int Build::numberBuild = 1;
+int Build::numberBuild = 0;
