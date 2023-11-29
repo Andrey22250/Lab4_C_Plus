@@ -9,7 +9,6 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	//пример работы с динамическим массивом "Build"
 	//1. Пример работы со статическим методом
 	for (int i = 0; i < 5; i++)
 	{
