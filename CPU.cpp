@@ -25,7 +25,7 @@ CPU operator++(CPU& cpu, int) {
 }
 
 std::ostream& operator << (ostream& out, const CPU& cpu) {
-	out << cpu.GetName();
+	out << cpu.GetFrequency();
 	return out;
 }
 
